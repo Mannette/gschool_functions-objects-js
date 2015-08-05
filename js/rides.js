@@ -38,27 +38,39 @@ var jordan = new Person(6, 'Jordan', 18);
 var alex = new Person(5.7, 'Alex', 23);
 
   // *** RIDES *** //
-var Ride = function(minHeight, maxHeight) {
+var Ride = function(minHeight, maxHeight, name) {
   this.minHeight = minHeight;
   this.maxHeight = maxHeight;
+  this.name = name;
 };
 
-var superman = new Ride(5, 7);
+var superman = new Ride(5, 7, 'Superman');
 
-var galleon = new Ride(4, 8);
+var galleon = new Ride(4, 8, 'Galleon');
 
-var babyRacer = new Ride(2, 5);
+var babyRacer = new Ride(2, 5, 'Baby Racer');
 //------- END OF OBJECTS -------//
 //------- FUNCTION -------//
 // compares height to determine if people can ride
-var measure = function(Person, Ride) {
-  if ((Person.height < Ride.minHeight) || (Person.height > Ride.maxHeight)) {
-    return false;
+var measure = function(person, ride) {
+  if ((person.height < ride.minHeight) || (person.height > ride.maxHeight)) {
+    return person.name + " can ride the " + ride.name;
   }
   else {
-    return true;
+    return person.name + " can't ride the " + ride.name;
   }
 };
+
+// Ride.prototype.tallEnough = function() {
+//   return this.minHeight;
+// };
+$('#rides').append('<ul></ul>');
+$('ul').append(measure(george, superman), '<br><br>');
+$('ul').append(measure(cathy, babyRacer), '<br><br>');
+$('ul').append(measure(jordan, galleon), '<br><br>');
+$('ul').append(measure(alex, babyRacer), '<br><br>');
+
+// console.log(superman.tallEnough());
 
 // THESE WORK
 console.log(measure(george, superman));
