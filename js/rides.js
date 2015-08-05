@@ -24,51 +24,35 @@
 
 //------- OBJECTS -------//
   // *** PEOPLE *** //
-
-var firstPerson = {
-  height: 4,
-  name: "George",
-  age: 5
+var Person = function(height, name, age) {
+  this.height = height;
+  this.name = name;
+  this.age = age;
 };
+var george = new Person(4, 'George', 5);
 
-var secondPerson = {
-  height: 2,
-  name: "Cathy",
-  age: 2
-};
+var cathy = new Person(2, 'Cathy', 2);
 
-var thirdPerson = {
-  height: 6,
-  name: "Jordan",
-  age: 18
-};
+var jordan = new Person(6, 'Jordan', 18);
 
-var fourthPerson = {
-  height: 5.7,
-  name: "Alex",
-  age: 23
-};
+var alex = new Person(5.7, 'Alex', 23);
 
   // *** RIDES *** //
-var superman = {
-  minHeight: 5,
-  maxHeight: 7
+var Ride = function(minHeight, maxHeight) {
+  this.minHeight = minHeight;
+  this.maxHeight = maxHeight;
 };
 
-var galleon = {
-  minHeight: 4,
-  maxHeight: 8
-};
+var superman = new Ride(5, 7);
 
-var babyRacer = {
-  minHeight: 2,
-  maxHeight: 5
-};
+var galleon = new Ride(4, 8);
+
+var babyRacer = new Ride(2, 5);
 //------- END OF OBJECTS -------//
 //------- FUNCTION -------//
 // compares height to determine if people can ride
-var measure = function(person, ride) {
-  if ((person.height < ride.minHeight) || (person.height > ride.maxHeight)) {
+var measure = function(Person, Ride) {
+  if ((Person.height < Ride.minHeight) || (Person.height > Ride.maxHeight)) {
     return false;
   }
   else {
@@ -77,8 +61,7 @@ var measure = function(person, ride) {
 };
 
 // THESE WORK
-// console.log(measure(firstPerson, superman));
-// console.log(measure(secondPerson, superman));
-// console.log(measure(thirdPerson, superman));
-// console.log(measure(firstPerson, babyRacer));
-// console.log(measure(thirdPerson, babyRacer));
+console.log(measure(george, superman));
+console.log(measure(cathy, babyRacer));
+console.log(measure(jordan, galleon));
+console.log(measure(alex, babyRacer));
