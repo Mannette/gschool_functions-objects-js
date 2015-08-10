@@ -41,7 +41,7 @@ var sun = new Route(9.3e+10, 'Sun', 'Orion Arm, Milky Way Galaxy');
 var expedition = function(car, route) {
 
   if((car.milesPerGallon * car.gallonsInTank) < route.totalMiles) {
-    return "The " + car.name + " can't make the trip to " + route.destination + " with " + car.gallonsInTank + " gallons of gas. Better fuel up!";
+    return "The " + car.name + " can't make the trip to " + route.destination + " in " + route.location + " with " + car.gallonsInTank + " gallons of gas. Better fuel up!";
   }
   else {
     return "The " + car.name + " can make this trip to " + route.destination + " with its current " + car.gallonsInTank + " gallons of gas. Have fun on your trip to " + route.destination + " in " + route.location + "!";
